@@ -41,7 +41,7 @@ const className = computed(() => ({
 
 <style>
 .as-card {
-    @apply max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700;
+    @apply max-w-sm p-6 bg-white border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700;
   }
   
   .as-card__header--full {
@@ -49,7 +49,7 @@ const className = computed(() => ({
   }
   
   .as-card__icon {
-    @apply w-10 h-10 mb-2 text-gray-500 dark:text-gray-400;
+    @apply w-10 h-10 mb-3 text-gray-500 dark:text-gray-400 rounded-full;
   }
   
   .as-card__title {
@@ -57,7 +57,7 @@ const className = computed(() => ({
   }
   
   .as-card__content {
-    @apply mb-3 font-normal text-gray-500 dark:text-gray-400;
+    @apply font-normal text-sm text-gray-500 dark:text-gray-400;
   }
   
   .as-card__footer--fluid {

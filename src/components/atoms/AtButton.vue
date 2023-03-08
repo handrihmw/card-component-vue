@@ -22,13 +22,10 @@ const props = defineProps({
   fluid: Boolean,
   primary: Boolean,
   secondary: Boolean,
-  success: Boolean,
-  link: Boolean,
   disabled: Boolean,
   sm: Boolean,
   md: Boolean,
   lg: Boolean,
-  withIcon: Boolean,
 })
 
 const className = computed(() => {
@@ -39,28 +36,21 @@ const className = computed(() => {
     [`${baseName}--fluid`]: props.fluid,
     [`${baseName}--primary`]: props.primary && !props.disabled,
     [`${baseName}--secondary`]: props.secondary && !props.disabled,
-    [`${baseName}--success`]: props.success && !props.disabled,
-    [`${baseName}--link`]: props.link && !props.disabled,
     [`${baseName}--disabled`]: props.disabled,
     [`${baseName}--xs`]: props.sm,
     [`${baseName}--sm`]: props.md,
     [`${baseName}--lg`]: props.lg,
-    'as-button-icon': props.withIcon,
   }
 })
 </script>
 
 <style>
 .as-button {
-    @apply inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
-  }
-  
-  .as-button--link {
-    @apply inline-flex items-center text-blue-600 hover:underline;
+    @apply inline-flex items-center mt-5 px-3 py-2.5 text-sm font-medium text-center rounded-full focus:ring-4 focus:outline-none;
   }
   
   .as-button--primary {
-    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800;
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-3.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800;
   }
   
   .as-button--secondary {
@@ -68,11 +58,11 @@ const className = computed(() => {
   }
   
   .as-button--fluid {
-    @apply w-full;
+    @apply flex text-center justify-center w-full;
   }
   
   .as-button--disabled {
-    @apply py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700;
+    @apply py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-transparent rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 disabled:opacity-75 cursor-not-allowed;
   }
   
   .as-button--xs {
@@ -85,9 +75,5 @@ const className = computed(() => {
   
   .as-button--lg {
     @apply px-5 py-3 text-base;
-  }
-  
-  .as-button--fluid {
-    @apply w-full;
   }
 </style>
