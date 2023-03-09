@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import AsCard from '@/components/molecules/MoCardIconLink.vue'
+import AsSkeletons from '@/components/molecules/MoSkeletonIconButton.vue'
 import { cardModel } from '@/types/cardModel'
 
 interface Props {
@@ -10,14 +12,26 @@ interface Emits {
   (eventName: 'on-click', payload: string): void;
 }
 
+const isLoading = ref(true)
+
+setTimeout(() => {
+  isLoading.value = false
+}, 5000)
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<Props>()
 const emit = defineEmits<Emits>()
 </script>
 
 <template>
-  <div class="grid grid-cols-none md:grid-cols-3 gap-4 mb-4">
-    <template v-for="card in cards">
+  <AsSkeletons v-if="isLoading" />
+  <div
+    v-else
+    class="grid grid-cols-none md:grid-cols-3 gap-4 mb-4"
+  >
+    <template
+      v-for="card in cards"
+    >
       <AsCard
         v-if="card"
         :key="JSON.stringify(card)"
